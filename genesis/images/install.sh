@@ -40,6 +40,11 @@ apt-get update
 # install docker
 apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
-
 cd /opt/jira
 docker compose pull
+
+# install njinx
+apt-get install -y nginx lego
+
+cp /opt/genesis_jira/genesis/images/nginx/jira.domain.com.config /etc/nginx/sites-available/jira.domain.com
+ln -s /etc/nginx/sites-available/jira.domain.com /etc/nginx/sites-enabled/jira.domain.com
